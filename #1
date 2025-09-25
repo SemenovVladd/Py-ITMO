@@ -1,0 +1,23 @@
+import unittest
+
+# Функция, которую будем тестировать
+def sumtwo(l=[], target=int()):
+    for i in range(len(l)):
+        for j in range(len(l)):
+            if l[i]+l[j]==target:
+                return [i,j]
+                break
+    return(None)
+# Тесты
+class TestMath(unittest.TestCase):
+    def test_add_positive(self):
+        self.assertEqual(sumtwo([1,2],3), [0,1])
+
+    def test_add_negative(self):
+        self.assertEqual(sumtwo([2,3,4,5],7), [0,3])
+
+    def test_add_zero(self):
+        self.assertEqual(sumtwo([7,8,9,2,5],100), None)
+
+# Запуск тестов
+unittest.main(argv=[''], verbosity=2, exit=False)
