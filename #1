@@ -1,8 +1,7 @@
 import unittest
+# Импоритирую функцию сдр. файла (в этой папке)
 from Deff import sumtwo
-# Функция, которую будем тестировать
 
-# Тесты
 class TestMath(unittest.TestCase):
     def test_1(self):
         self.assertEqual(sumtwo([2,7,11,15],9), [0,1])
