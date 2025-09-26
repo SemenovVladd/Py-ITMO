@@ -1,0 +1,7 @@
+def sumtwo(l=[], target=int()):
+    for i in range(len(l)):
+        for j in range(len(l)):
+            if l[i]+l[j]==target and i!=j:
+                return [i,j]
+                break
+    return(None)
