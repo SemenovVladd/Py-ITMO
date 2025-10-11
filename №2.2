@@ -1,0 +1,28 @@
+def lf(a,b,n):
+    #a - Начало списка
+    #b - Конец списка
+    #n - Угадоеваемое число
+    ab=[int(i) for i in range(a,b+1)]
+    #строим массив из условия
+    if n in ab:
+        for i in range(len(ab)):
+            #берем по очереди значения i равные 1,2,3... до длинны массива
+            if ab[i]==n:
+                return n,i+1
+                #если угадали число выводим его и номер элемента массива
+    else:
+        return None
+class TestMath(unittest.TestCase):
+    def test21(self):
+        self.assertEqual(lf(1, 10,2), (2,2))
+
+    def test22(self):
+        self.assertEqual(lf(-3, 10,20), None)
+
+    def test23(self):
+        self.assertEqual(lf(0, 0,3), None)
+
+    def test24(self):
+        self.assertEqual(lf(2, 2,2), (2,1))
+
+unittest.main(argv=[''], verbosity=2, exit=False)
