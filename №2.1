@@ -1,0 +1,44 @@
+import unittest
+def binfind(a,b,n):
+    #a- Начало списка
+    #b- Конец списка
+    #n- Угадоеваемое число
+    h=-1.1
+    # Служебная переменная для угадывания и деления массива на две части
+    ab=[int(i) for i in range(a,b+1)]
+    #строим массив из условия
+    c=0
+    #служебная переменная - счетчик ходов
+    if n in ab:
+        while h !=n:
+            #пока не угадали число делам проверки
+            h=ab[len(ab)//2]
+            #берем среднее значение, смотрим, чтобы оно было целым, для этого используем целочисленное деление
+            if h==n:
+                c+=1
+                return h,c
+                #если угадали число, прибавляем к счетчику 1 и выводим угаданное число и количество ходов
+            elif n<h:
+                ab=ab[0:len(ab)//2]
+                c+=1
+                #если загаданное число меньше h, оставляем в массиве значения, которые меньше h
+            else:
+                ab=ab[len(ab)//2+1:len(ab)]
+                c+=1
+                #если загаданное число больше h, оставляем в массиве значения, которые больше h
+    else:
+        return None
+
+class TestMath(unittest.TestCase):
+    def test11(self):
+        self.assertEqual(binfind(1, 10,2), (2,3))
+
+    def test12(self):
+        self.assertEqual(binfind(-3, 10,20), None)
+
+    def test13(self):
+        self.assertEqual(binfind(0, 0,3), None)
+
+    def test14(self):
+        self.assertEqual(binfind(2, 2,2), (2,1))
+unittest.main(argv=[''], verbosity=2, exit=False)
