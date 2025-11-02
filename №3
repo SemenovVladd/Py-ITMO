@@ -1,0 +1,14 @@
+from typing import Callable
+#импортируем функции ввиде типов
+def gen_bin_tree (root:int, height: int,
+                  l: callable(), r:callable()) -> dict:
+    # создаем функцию от корня, высоты и формул для левых и правых продолжений
+    if height==0:
+        return {}
+    #если высота равна 0, возращаем пустой список
+    if height==1:
+        return {str(root): []}
+    #если высота равна 1, возращаем список из корня и массива
+    return {str(root):[gen_bin_tree(l(root), height-1,l,r),
+                       gen_bin_tree(l(root), height-1,l,r)]}
+    #возращаем для каждого корня левого и правого потомка
