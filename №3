@@ -3,9 +3,6 @@ from typing import Callable
 def gen_bin_tree (root:int, height: int,
                   l: callable, r:callable) -> dict:
     # создаем функцию от корня, высоты и формул для левых и правых продолжений
-    if height==0:
-        return {}
-    #если высота равна 0, возращаем пустой список
     if height==1:
         return {str(root): []}
     #если высота равна 1, возращаем список из корня и массива
