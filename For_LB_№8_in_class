@@ -1,0 +1,6 @@
+from jinja 2 import Environment, PackageLoader,select_autoescape
+from models important autor
+Autor.Autor ('Vlad','P3124')
+env=Environment(loader = PackegeLoader("myapp"),
+                autoescape = select_autoscape())
+template = env.get_tamplate("index.html")
