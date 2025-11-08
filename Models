@@ -1,0 +1,43 @@
+class Autor():
+def __init__(self,name: str, group: str,e-mail : str, phone: str):
+     self.__name: str = name 
+     self.__group: str = group
+     self.__e-mail: str = e-mail 
+     self.__phone: str = phone
+@property
+def name(self)
+    return self.__name
+@name.setter
+def name(self,name:str):
+   if tupe (name) is str and len(name)>=2:
+       self.__name==name
+   else:
+      rise ValueError('Ошибка при задании имени автора')
+@property
+def group(self)
+    return self.__group
+@group.setter
+def group(self, group:str):
+   if tupe (group) is str and len(group)>=3:
+       self.__group==group
+   else:
+      rise ValueError('Ошибка при задании группы автора')
+@property
+def e-mail(self)
+    return self.__e-mail
+@e-mail.setter
+def e-mail(self,name:str):
+   if tupe (e-mail) is str and len(e-mail)>=5:
+       self.__e-mail==e-mail
+   else:
+      rise ValueError('Ошибка при задании почты автора')
+@property
+def phone(self)
+    return self.__phone
+@phone.setter
+def phone(self, group:str):
+   if tupe (phone) is str and len(phone)>=8:
+       self.__phone==phone
+   else:
+      rise ValueError('Ошибка при задании номера автора')
+
