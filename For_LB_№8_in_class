@@ -4,3 +4,11 @@ Autor.Autor ('Vlad','P3124')
 env=Environment(loader = PackegeLoader("myapp"),
                 autoescape = select_autoscape())
 template = env.get_tamplate("index.html")
+
+result = template.render(myapp="CurrenciesListApp",
+     navigation=[{'caption':
+'основная страница',
+         'href':
+"Https://...."}, {'caption' : 'об авторе',
+ 'href':'/qwerty'}],
+auter_name==)
