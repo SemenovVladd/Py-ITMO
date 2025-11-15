@@ -1,13 +1,39 @@
 import sqlite3
-# Подключение/ создание бд
-con = sqlite3.connect('12345.db')
-cur = con.cursor()
+class CurrencyRatesCRUD ():
+
+     # Подключение/ создание бд
+     def __init__(self,currency_retes_obj):
+          self.con = sqlite3.connect('12345.db')
+          self.__createtable()
+          self.cursor = con.cursor()
+          self.__currency_retes_obj=currency_retes_obj
+
 # создание столбцов
-cur.execute("CREATE TABLE val(
-     ADE
-     Name
-     Cost
-)")
+     def __createtable(self):
+     
+          self.cor.execute(
+          "CREATE TABLE IF NOT EXISTScurrancy("
+               "id"
+               "cur TEXT,"
+               "date TEXTDEFAULT CURRENT_TIMESTAMP,"
+               "value FLOAT): ")
+          self.__con.commit()
+
+     def _create(self)
+          __params = self.currency_retes_obj.values
+          __sqlquery = "INSERT INTO currency( cur, value" VALUES(?, ?)"
+          self.__cursor.executemany(__sqlquery, __params)
+          self.__con.commit()
+
+     def _read(self):
+          cur = self.__con.execute("SELECT * FROM caurrency")
+          result_data = []
+          for _row in cur:
+               _d = {}
+               result_data.append (_d)
+
+
+
 # Пример добавления
 cur.execute("""
  INSERT INTO val VALUES
