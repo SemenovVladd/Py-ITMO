@@ -1,6 +1,26 @@
 import sqlite3
-con = sqlite3.connect('')
+# Подключение/ создание бд
+con = sqlite3.connect('12345.db')
 cur = con.cursor()
-cur.execute("CREATE TABLE (
-
-)"
+# создание столбцов
+cur.execute("CREATE TABLE val(
+     ADE
+     Name
+     Cost
+)")
+# Пример добавления
+cur.execute("""
+ INSERT INTO val VALUES
+     (123, A, 90),
+     (1234, B, 80),
+""")
+con.commit()
+res = cur.execute("SELECT cost FROM val")
+# Сделать датасет с 3 столбцами и n строками
+data= [()
+       ()
+       ()
+]
+# Внесение data в sql таблицу
+cur.executemany("INSERT INTO val VALES(?, ?, ?)", data)
+con.commit()
