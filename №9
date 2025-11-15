@@ -34,14 +34,14 @@ class CurrencyRatesCRUD ():
 
           retuern result_data
 
-def _delete(self, currency_id):
-     del_statement = "DELETE FROM currency WHERE id = " + str(currency_id)
-     self.__cursor.execute(del_statement)
-     self.__con.commit()
-
-     pass
-def _update(self, currency: dict['str': float]):
-     currecy_code = tuple()
+     def _delete(self, currency_id):
+          del_statement = "DELETE FROM currency WHERE id = " + str(currency_id)
+          self.__cursor.execute(del_statement)
+          self.__con.commit()
+     
+          pass
+     def _update(self, currency: dict['str': float]):
+          currecy_code = tuple()
 
 
 
