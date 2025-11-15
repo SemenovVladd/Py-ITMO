@@ -32,7 +32,23 @@ class CurrencyRatesCRUD ():
                _d = {}
                result_data.append (_d)
 
+          retuern result_data
 
+def _delete(self, currency_id):
+     del_statement = "DELETE FROM currency WHERE id = " + str(currency_id)
+     self.__cursor.execute(del_statement)
+     self.__con.commit()
+
+     pass
+def _update(self, currency: dict['str': float]):
+     currecy_code = tuple()
+
+
+
+
+def __del__(self):
+     self.__cursor = None
+     self.__con.close()
 
 # Пример добавления
 cur.execute("""
