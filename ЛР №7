@@ -1,0 +1,47 @@
+import logging
+
+import requests
+
+import sys
+
+
+def logger(func=None, *, handle=sys.stdout):
+    if isinstance(handle,logging.Logger):
+        info= handle.info
+        error= handle.error
+    else:
+        info= handle.write
+    def iner():
+        info("Вызаваем функцию")
+#записываем в уровень info начало вызова
+        try:
+            return func()
+        except Exception as e:
+            info(str(e))
+            raise e
+# если ошибка записываем в info
+        finally:
+            info("Завершение вызова")
+#в любом случае завершаем вызов
+    return iner
+
+@logger
+def get_currencies(url='https://www.cbr-xml-daily.ru/daily_json.js'):
+    try:
+        if url!='https://www.cbr-xml-daily.ru/daily_json.js':
+#проверка на корректность url
+            raise ValueError
+        response=requests.get(url)
+#делаем запрос
+        a=response.json()
+#получаем польный словарь страницы
+        d={}
+#итоговый словарь
+        for i in a['Valute']:
+            d[i]=a['Valute'][i]['Value']
+#заполняем итоговый словарь ключами (названиями валют) и значениями валют
+        return d
+#возвращаем словарь
+    except KeyError as e:
+        raise e
+проверка на ошибку KeyError
