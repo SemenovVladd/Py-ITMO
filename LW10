@@ -26,6 +26,17 @@ print(timeit.timeit(math.sin, 0, 100))
 # замеряем время выполнения функции с заданными параметрами
 print(timeit.timeit(math.cos, 0, 100)
 # замеряем время выполнения функции с заданными параметрами
+class Tests(unitest.TestCase):
+  def test_1:
+    self.assertEqual(self.integrate(math.cos, 0, 100),...)
+  def test_2:
+    self.assertEqual(self.integrate(math.sin, 0, 100),...)
+if __name__ == "__main__":
+  unitest.main()
+
+
+
+
 
 #итерация 2
 #Функция вычисляет интегралл заданнй функции в заданном диапазоне
