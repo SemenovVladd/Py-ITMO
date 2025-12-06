@@ -27,3 +27,115 @@ print(timeit.timeit(math.sin, 0, 100))
 print(timeit.timeit(math.cos, 0, 100)
 # замеряем время выполнения функции с заданными параметрами
 
+#итерация 2
+#Функция вычисляет интегралл заданнй функции в заданном диапазоне
+
+def integrate(f, a ,b, *, n_jobs=2 n_iter=10000):
+#  f - функция для которой вычисляем интегралл
+#  a, b - диапазон интегрирования
+#  n_jobs - количество потоков, !надо поэкспеременитровать с потоками!
+#  n_inter - количество интеграций
+
+executor = ftres.ThreadPoolExecutor(max_workers=n_jobs)
+
+spawn = partial(executor.submit, integrate, f, n_iter = n_iter // n_jobs)
+
+
+
+  step=(b - a) / n_jobs
+#  переменная stp отвечает за ширину работы каждого потока 
+
+  for i in range(n_jobs):
+#  проходимся по всем потокам интегрирования
+    print(f"Работник {i}, границы {a + i * step}, {a + (i + 1) * step}")
+
+fs = [spawn(a + i * step, a + (i + 1) * step) for i in range(n_jobs)]
+
+
+  return sum(list(f.result() for f in ftres.as_complated(fs)))
+#  возвращаем сумму
+print(timeit.timeit(math.sin, 0, 100))
+# замеряем время выполнения функции с заданными параметрами
+print(timeit.timeit(math.cos, 0, 100)
+# замеряем время выполнения функции с заданными параметрами
+
+
+
+#итерация 3
+#Функция вычисляет интегралл заданнй функции в заданном диапазоне
+
+def integrate(f, a ,b, *, n_jobs=2 n_iter=10000):
+#  f - функция для которой вычисляем интегралл
+#  a, b - диапазон интегрирования
+#  n_jobs - количество потоков, !надо поэкспеременитровать с процесами!
+#  n_inter - количество интеграций
+
+executor = ftres.ProcessPoolExecutor(max_workers=n_jobs)
+
+spawn = partial(executor.submit, integrate, f, n_iter = n_iter // n_jobs)
+
+
+
+  step=(b - a) / n_jobs
+#  переменная stp отвечает за ширину работы каждого потока 
+
+  for i in range(n_jobs):
+#  проходимся по всем потокам интегрирования
+    print(f"Работник {i}, границы {a + i * step}, {a + (i + 1) * step}")
+
+fs = [spawn(a + i * step, a + (i + 1) * step) for i in range(n_jobs)]
+
+
+  return sum(list(f.result() for f in ftres.as_complated(fs)))
+#  возвращаем сумму
+print(timeit.timeit(math.sin, 0, 100))
+# замеряем время выполнения функции с заданными параметрами
+print(timeit.timeit(math.cos, 0, 100)
+# замеряем время выполнения функции с заданными параметрами
+
+
+
+
+
+
+
+#итерация 4 и сама функция на которой будем делать замер
+def longf(n=10000):
+  c=0
+  a = 1
+  b=3
+  while c < n:
+  c+=1
+  b+=3
+  a+=b
+  a+=a
+  return c
+
+Import Cython...
+
+def longf(int n = 10000):
+  cdef int c = 0
+  cdef int a = 1
+  cdef int b = 3
+
+  while c < n:
+    c+=1
+    b+=3
+    a+=b
+    a+=a
+
+  return c
+
+
+setup(
+  set_...les=cython
+)
+
+
+
+
+
+
+
+
+
