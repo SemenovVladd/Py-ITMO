@@ -128,8 +128,18 @@ def longf(int n = 10000):
 
 
 setup(
-  set_...les=cython
+  set_...les=cythonire(..., "fib.pyx")
 )
+
+
+
+#другая папка 
+print(min(timeit.repeat(fib, number=10000, reapet 5)
+
+
+
+#интеграция 5 
+
 
 
 
